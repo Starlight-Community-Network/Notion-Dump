@@ -1,0 +1,682 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Release 2025.1 Full Release</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+	margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI Variable Display", "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.highlight-default_background {
+	color: rgba(50, 48, 44, 1);
+}
+.highlight-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.highlight-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(115, 114, 110, 1);
+	fill: rgba(115, 114, 110, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(205, 60, 58, 1);
+	fill: rgba(205, 60, 58, 1);
+}
+.block-color-default_background {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray_background {
+	background: rgba(248, 248, 247, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(248, 243, 252, 1);
+}
+.block-color-pink_background {
+	background: rgba(252, 241, 246, 1);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-default { background-color: rgba(84, 72, 49, 0.08); }
+.select-value-color-gray { background-color: rgba(84, 72, 49, 0.15); }
+.select-value-color-brown { background-color: rgba(210, 162, 141, 0.35); }
+.select-value-color-orange { background-color: rgba(224, 124, 57, 0.27); }
+.select-value-color-yellow { background-color: rgba(236, 191, 66, 0.39); }
+.select-value-color-green { background-color: rgba(123, 183, 129, 0.27); }
+.select-value-color-blue { background-color: rgba(93, 165, 206, 0.27); }
+.select-value-color-purple { background-color: rgba(168, 129, 197, 0.27); }
+.select-value-color-pink { background-color: rgba(225, 136, 179, 0.27); }
+.select-value-color-red { background-color: rgba(244, 171, 159, 0.4); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="aba198c0-4a50-4fc2-a0c1-cae30453a962" class="page sans"><header><img class="page-cover-image" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/Screenshot_2024-10-30_at_08-40-21_Wix_Website_Editor_Shimmering_Community.png" style="object-position:center 50%"/><div class="page-header-icon page-header-icon-with-cover"><span class="icon">🚀</span></div><h1 class="page-title">Release 2025.1 Full Release</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-status"><th><span class="icon property-icon"><div data-testid="/icons/burst_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/burst_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/burst_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>Status</th><td><span class="status-value select-value-color-green"><div class="status-dot status-dot-color-green"></div>Published</span></td></tr><tr class="property-row property-row-person"><th><span class="icon property-icon"><div data-testid="/icons/friends_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/friends_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/friends_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>Author(s)</th><td><span class="user"><img src="../logo_transparentNF.png" class="icon user-icon"/>NIght Fury</span><span class="user"><img src="../../Projects%205d0dea1383bf434681c5627e4bc2d04d/Icon_(1).png" class="icon user-icon"/>Thunderhawk Gaming</span></td></tr><tr class="property-row property-row-date"><th><span class="icon property-icon"><div data-testid="/icons/calendar_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/calendar_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/calendar_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>Release Date</th><td><time>@April 1, 2025 7:20 AM (EST)</time></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/kind_gray.svg" style="width:14px;height:14px;display:block"/></span>Release Type</th><td><span class="selected-value select-value-color-purple">Minor Release</span></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><div data-testid="/icons/description_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/description_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/description_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>Description</th><td>Small changes, QOL, And more</td></tr><tr class="property-row property-row-auto_increment_id"><th><span class="icon property-icon"><div data-testid="/icons/numero_gray.svg" style="width:14px;height:14px;flex-shrink:0;transform:scale(1.2);mask:url(/icons/numero_gray.svg?mode=light) no-repeat center;-webkit-mask:url(/icons/numero_gray.svg?mode=light) no-repeat center;background-color:rgba(71, 70, 68, 0.6);fill:rgba(71, 70, 68, 0.6)"></div></span>ID</th><td>30</td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><img src="https://www.notion.so/icons/new-badge_gray.svg" style="width:14px;height:14px;display:block"/></span>Versioning</th><td>2025.1</td></tr></tbody></table></header><div class="page-body"><div id="6499ba81-69e1-4052-9435-84295420717e" class="column-list"><div id="2da563ff-fc13-4e5f-a50a-fac90a9baccc" style="width:75%" class="column"><h1 id="1eb3aebb-382f-4617-9642-e6d857c34495" class="">Release Notes</h1><h2 id="4bd5a2ed-149e-4c02-b25a-0cbf68b1872c" class="">Critical Updates</h2><ul id="09c357d0-ea83-416f-ad4d-12a050e49ab7" class="bulleted-list"><li style="list-style-type:disc">Crack Down, this Issue <a href="../Site%20Issue%20Tracker%20b0245665ca0b4fb293e5acfc21c7f23c/Terrible%20Optimization%20342b0325c4d44712afd08c0544748d2d.html"><span class="icon">⚠️</span>Terrible Optimization</a> <mark class="highlight-orange_background">[On Hold]</mark><mark class="highlight-default"> </mark><em><mark class="highlight-default"><strong>Pushed Back till a later update to stop encouraging crunch</strong></mark></em></li></ul><ul id="10023f5a-0c84-4d69-a438-013a236d8fa2" class="bulleted-list"><li style="list-style-type:disc"><a href="../Site%20Issue%20Tracker%20b0245665ca0b4fb293e5acfc21c7f23c/Link%20In%20Bio%20Pages%20for%20Network%20Servers%20%5BFixed%5D%20b64c9129c05d44c1b2c7b09ad9763521.html"><span class="icon">💡</span>Link In Bio Pages for Network Servers [Fixed]</a> <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="10c75247-3293-8013-8157-f0628303ccff" class="bulleted-list"><li style="list-style-type:disc"><a href="../Site%20Issue%20Tracker%20b0245665ca0b4fb293e5acfc21c7f23c/Design%20inconsistences%2029d93e1e8ca64eb8a028e2b1df6f06b5.html"><span class="icon">⚠️</span>Design inconsistences</a> <mark class="highlight-orange_background">[On Hold]</mark><mark class="highlight-default_background"> p</mark><em><mark class="highlight-default"><strong>ushed Back till a later update to stop encouraging crunch</strong></mark></em></li></ul><ul id="aa0d912c-e2d3-4e9b-bc77-efc254062603" class="bulleted-list"><li style="list-style-type:disc">Update Social Icons Site-Wide <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="1ba75247-3293-808b-ae35-ec64f9d74b4b" class="bulleted-list"><li style="list-style-type:disc">SEO Updates <mark class="highlight-teal_background">[Finished]</mark><mark class="highlight-default_background"> </mark><strong>Hotfix 1 </strong><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="d30da204-33d5-479d-8b3a-646d96508135" class="bulleted-list"><li style="list-style-type:disc">New Menu System <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="1bb75247-3293-8026-b578-cc7c955a0572" class="bulleted-list"><li style="list-style-type:disc">Fixing bugs with positions pages and SMG Pages <mark class="highlight-teal_background">[Finished]</mark><mark class="highlight-default_background"> </mark><strong>Hotfix 1</strong></li></ul><ul id="1c475247-3293-80bd-9805-db262f655eda" class="bulleted-list"><li style="list-style-type:disc"><a href="../Site%20Issue%20Tracker%20b0245665ca0b4fb293e5acfc21c7f23c/Better%20Footer%20%5BFixed%5D%201ba75247329380d29690e0f92975ed32.html"><span class="icon">💡</span>Better Footer [Fixed]</a>  <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="1c875247-3293-803b-8fa1-d357c69a60d8" class="bulleted-list"><li style="list-style-type:disc">Some updated/Improve UPT/RNT Pages from <a href="Release%202024%209-RC%20A%20K%20A%202024%208-RC%201&amp;2%205ecad6447b5c4f38a5a36a6da3bc855f.html"><span class="icon">🚀</span>Release 2024.9-RC A.K.A 2024.8-RC 1&amp;2</a>  <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="1c875247-3293-8090-b3e7-ecf83fa34104" class="bulleted-list"><li style="list-style-type:disc">Removed the Beta Text in the corner <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@NIght Fury</span></strong><strong> </strong></li></ul><ul id="1cf75247-3293-807d-acac-dcc8d01aac3e" class="bulleted-list"><li style="list-style-type:disc">Fixed broken menu and added Spec sheets <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@Thunderhawk Gaming</span></strong><strong> </strong></li></ul><ul id="1d775247-3293-807b-8694-dad058ab93e1" class="bulleted-list"><li style="list-style-type:disc">Removed Announcement Banner and made header now move with the site again <mark class="highlight-teal_background">[Finished</mark><mark class="highlight-default_background">] </mark><strong>Hotfix 2 </strong><strong><span class="user">@Thunderhawk Gaming</span></strong><strong> </strong></li></ul><h1 id="1c875247-3293-800a-8ae4-c0802b2c6dce" class="">Images </h1><ul id="1c875247-3293-809d-95a1-cbfc08c123ef" class="bulleted-list"><li style="list-style-type:disc">New menu System</li></ul><figure id="1c875247-3293-80a0-91f6-c38147a10b7f" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj(2).png"><img style="width:560.0305786132812px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj(2).png"/></a><figcaption>Before</figcaption></figure><figure id="1c875247-3293-80c1-8917-ed5f3a52426b" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj(3).png"><img style="width:560.0305786132812px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj(3).png"/></a><figcaption>After</figcaption></figure><ul id="1c875247-3293-8079-b697-fdd141a7882a" class="bulleted-list"><li style="list-style-type:disc">Better Footer</li></ul><figure id="1c875247-3293-8010-9681-f6941bfa9043" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj.png"><img style="width:560.0930786132812px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj.png"/></a><figcaption>Before</figcaption></figure><figure id="1c875247-3293-8016-9b42-cb0b4aa264f7" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj(1).png"><img style="width:528px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/djnfkasdjkfjklfjkasdnfj(1).png"/></a><figcaption>After</figcaption></figure><ul id="1c875247-3293-802d-8c50-d2b7aee05c23" class="bulleted-list"><li style="list-style-type:disc"><a href="../Site%20Issue%20Tracker%20b0245665ca0b4fb293e5acfc21c7f23c/Link%20In%20Bio%20Pages%20for%20Network%20Servers%20%5BFixed%5D%20b64c9129c05d44c1b2c7b09ad9763521.html"><span class="icon">💡</span>Link In Bio Pages for Network Servers [Fixed]</a></li></ul><figure id="1c875247-3293-80e1-995d-fab7894f5ae1" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/image.png"><img style="width:560.2337036132812px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/image.png"/></a><figcaption>Before</figcaption></figure><figure id="1c875247-3293-8014-9b28-d934afbcfb1c" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/image%201.png"><img style="width:560.2180786132812px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/image%201.png"/></a><figcaption>After</figcaption></figure><figure id="1cb75247-3293-809a-9773-eae00c9dea89" class="image"><a href="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/image%202.png"><img style="width:1200px" src="Release%202025%201%20Full%20Release%20aba198c04a504fc2a0c1cae30453a962/image%202.png"/></a><figcaption>After</figcaption></figure><p id="1cb75247-3293-80fd-8ca0-c103dceb1f79" class="">
+</p></div><div id="79e82331-9c76-4f61-8562-8cb7f489e20f" style="width:24.99999999999999%" class="column"><nav id="e287ce18-a686-4b07-8e4e-f24e044f2b32" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1eb3aebb-382f-4617-9642-e6d857c34495">Release Notes</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#4bd5a2ed-149e-4c02-b25a-0cbf68b1872c">Critical Updates</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1c875247-3293-800a-8ae4-c0802b2c6dce">Images </a></div></nav><p id="1cb75247-3293-8025-90ca-d4f5f1e74a81" class="">
+</p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
